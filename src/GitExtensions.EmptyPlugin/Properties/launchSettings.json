@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GitExtensions.EmptyPlugin": {
+      "commandName": "Executable",
+      "executablePath": "$(SolutionDir)\\references\\GitExtensions\\GitExtensions.exe"
+    }
+  }
+}
