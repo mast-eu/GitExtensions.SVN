@@ -12,3 +12,7 @@ The [wiki](https://github.com/mast-eu/GitExtensions.SVN/wiki/Workarounds) docume
 
 ## I don't like the workarounds from the wiki!
 Good, we have something in common. Have a look arround at this project and feel free to contribute.
+
+
+## Attributions
+Some icons by [Yusuke Kamiyamane](http://p.yusukekamiyamane.com). Licensed under a [Creative Commons Attribution 3.0 License](http://creativecommons.org/licenses/by/3.0/).
