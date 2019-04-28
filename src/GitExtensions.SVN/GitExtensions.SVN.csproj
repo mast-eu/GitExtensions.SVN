@@ -16,7 +16,16 @@
   </ItemGroup>
   
   <!-- Reference to GitExtensions dlls. -->
-  <ItemGroup>
+  <ItemGroup> 
+    <Reference Include="GitCommands">
+      <HintPath>..\..\references\GitExtensions\GitCommands.dll</HintPath>
+    </Reference>
+    <Reference Include="GitExtUtils">
+      <HintPath>..\..\references\GitExtensions\GitExtUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="GitUI">
+      <HintPath>..\..\references\GitExtensions\GitUI.dll</HintPath>
+    </Reference>
     <Reference Include="GitUIPluginInterfaces">
       <HintPath>..\..\references\GitExtensions\GitUIPluginInterfaces.dll</HintPath>
     </Reference>
