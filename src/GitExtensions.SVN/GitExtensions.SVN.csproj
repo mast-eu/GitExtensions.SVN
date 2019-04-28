@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  
+  <!-- Reference to GitExtensions dlls. -->
+  <ItemGroup>
+    <Reference Include="GitUIPluginInterfaces">
+      <HintPath>..\..\references\GitExtensions\GitUIPluginInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ResourceManager">
+      <HintPath>..\..\references\GitExtensions\ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+
+  <!-- Before building project ensure we have debug GitExtensions instance (for references and debugging). -->
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="powershell.exe -ExecutionPolicy Unrestricted ..\..\tools\Download-GitExtensions.ps1" />
+  </Target>
+
+  <!-- After build, copy plugin to debug GitExtensions instance (for debugging). -->
+  <PropertyGroup>
+    <GitExtensionsDebugPluginsPath>..\..\references\GitExtensions\Plugins\</GitExtensionsDebugPluginsPath>
+  </PropertyGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(GitExtensionsDebugPluginsPath)" />
+  </Target>
+
+  <!-- Pack as .nupkg with dependency on GitExtensions.Plugins -->
+  <PropertyGroup>
+    <NuspecFile>$(MSBuildThisFileDirectory)$(MSBuildProjectName).nuspec</NuspecFile>
+    <Authors>Martin Steinisch</Authors>
+    <Company></Company>
+    <Description>Git Extensions SVN plugin distributed as NuGet package.</Description>
+    <PackageProjectUrl>https://github.com/maraf/GitExtensions.SVN</PackageProjectUrl>
+    <PackageTags>Neptuo GitExtensions</PackageTags>
+  </PropertyGroup>
+  <Target Name="SetPackageProperties" BeforeTargets="GenerateNuspec">
+    <PropertyGroup>
+      <NuspecProperties>
+        id=$(PackageId);
+        version=$(PackageVersion);
+        configuration=$(Configuration);
+        tags=$(PackageTags.Replace(';',' '));
+        projectUrl=$(PackageProjectUrl);
+        iconUrl=$(PackageIconUrl);
+        repositoryUrl=$(RepositoryUrl);
+        repositoryType=$(RepositoryType);
+        repositoryCommit=$(RepositoryCommit);
+        author=$(Authors);
+        copyright=$(Copyright);
+        description=$(Description);
+        targetDir=$(TargetDir);
+      </NuspecProperties>
+    </PropertyGroup>
+  </Target>
+
+</Project>
