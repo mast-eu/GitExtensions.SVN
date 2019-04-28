@@ -49,6 +49,7 @@ namespace GitExtensions.SVN
         private GitUI.Script.ScriptInfo scriptSvnFetch;
         private GitUI.Script.ScriptInfo scriptSvnRebase;
         private GitUI.Script.ScriptInfo scriptSvnDCommit;
+        private GitUI.Script.ScriptInfo scriptSvnInfo;
 
         public Plugin()
         {
@@ -81,10 +82,22 @@ namespace GitExtensions.SVN
         }
 
 
-        public override bool Execute(GitUIEventArgs e)
+        public override bool Execute(GitUIEventArgs gitUiEventArgs)
         {
-            MessageBox.Show(e.OwnerForm, "Hello from the SVN Plugin.", "Git Extensions");
-            return true;
+            if (!CheckIsSvnRepo(gitUiEventArgs.GitUICommands))
+            {
+                MessageBox.Show(owner: gitUiEventArgs.OwnerForm, text: "The repository has no SVN remote.", caption: PluginName, buttons: MessageBoxButtons.OK,
+                                icon: MessageBoxIcon.Error);
+
+                return false;
+            }
+            else
+            {
+                MessageBox.Show(owner: gitUiEventArgs.OwnerForm, text: "The SVN commands are in the toolbar.", caption: PluginName, buttons: MessageBoxButtons.OK,
+                                icon: MessageBoxIcon.Information);
+
+                return true;
+            }
         }
 
 
@@ -147,6 +160,18 @@ namespace GitExtensions.SVN
             scriptSvnDCommit.AskConfirmation = false;
             scriptSvnDCommit.OnEvent = GitUI.Script.ScriptEvent.ShowInUserMenuBar;
             scriptSvnDCommit.Icon = "Push";
+
+            scriptSvnInfo = scriptList.AddNew();
+            scriptSvnInfo.Name = "SVN Info";
+            scriptSvnInfo.Command = "git";
+            scriptSvnInfo.Arguments = "svn info";
+            scriptSvnInfo.AddToRevisionGridContextMenu = false;
+            scriptSvnInfo.Enabled = true;
+            scriptSvnInfo.RunInBackground = false;
+            scriptSvnInfo.IsPowerShell = false;
+            scriptSvnInfo.AskConfirmation = false;
+            scriptSvnInfo.OnEvent = GitUI.Script.ScriptEvent.ShowInUserMenuBar;
+            scriptSvnInfo.Icon = "Information";
 
             AppSettings.OwnScripts = GitUI.Script.ScriptManager.SerializeIntoXml();
         }
