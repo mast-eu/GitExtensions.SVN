@@ -8,6 +8,7 @@ namespace GitExtensions.SVN
     {
         static private BindingList<GitUI.Script.ScriptInfo> GitExtScriptList = new BindingList<GitUI.Script.ScriptInfo> {};
         static private BindingList<GitUI.Script.ScriptInfo> SvnScriptList = new BindingList<GitUI.Script.ScriptInfo> {};
+        static readonly private int FirstHotkeyCommandIdentifier = 10000; // Arbitrary choosen. GE by default starts at 9000 for it's own scripts.
 
         /// <summary>
         /// Adds a new script, without saving it to GE's settings file.
@@ -35,6 +36,7 @@ namespace GitExtensions.SVN
             newScript.AskConfirmation = askConfirmation;
             newScript.RunInBackground = runInBackground;
             newScript.IsPowerShell = isPowerShell;
+            newScript.HotkeyCommandIdentifier = FirstHotkeyCommandIdentifier + GitExtScriptList.Count;
             newScript.Icon = icon;
 
             SvnScriptList.Add(newScript);
