@@ -1,5 +1,5 @@
 /.vs/GitExtensions.SVN/v15/*
-/src/GitExtensions.SVN/bin/*
-/src/GitExtensions.SVN/obj/*
+/GitExtensions.SVN/bin/*
+/GitExtensions.SVN/obj/*
 
 /references/*

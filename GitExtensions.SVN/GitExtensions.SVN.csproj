@@ -18,19 +18,19 @@
   <!-- Reference to GitExtensions dlls. -->
   <ItemGroup> 
     <Reference Include="GitCommands">
-      <HintPath>..\..\references\GitExtensions\GitCommands.dll</HintPath>
+      <HintPath>..\references\GitExtensions\GitCommands.dll</HintPath>
     </Reference>
     <Reference Include="GitExtUtils">
-      <HintPath>..\..\references\GitExtensions\GitExtUtils.dll</HintPath>
+      <HintPath>..\references\GitExtensions\GitExtUtils.dll</HintPath>
     </Reference>
     <Reference Include="GitUI">
-      <HintPath>..\..\references\GitExtensions\GitUI.dll</HintPath>
+      <HintPath>..\references\GitExtensions\GitUI.dll</HintPath>
     </Reference>
     <Reference Include="GitUIPluginInterfaces">
-      <HintPath>..\..\references\GitExtensions\GitUIPluginInterfaces.dll</HintPath>
+      <HintPath>..\references\GitExtensions\GitUIPluginInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="ResourceManager">
-      <HintPath>..\..\references\GitExtensions\ResourceManager.dll</HintPath>
+      <HintPath>..\references\GitExtensions\ResourceManager.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Windows.Forms" />
@@ -38,12 +38,12 @@
 
   <!-- Before building project ensure we have debug GitExtensions instance (for references and debugging). -->
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="powershell.exe -ExecutionPolicy Unrestricted ..\..\tools\Download-GitExtensions.ps1" />
+    <Exec Command="powershell.exe -ExecutionPolicy Unrestricted Resources\Tools\Download-GitExtensions.ps1" />
   </Target>
 
   <!-- After build, copy plugin to debug GitExtensions instance (for debugging). -->
   <PropertyGroup>
-    <GitExtensionsDebugPluginsPath>..\..\references\GitExtensions\Plugins\</GitExtensionsDebugPluginsPath>
+    <GitExtensionsDebugPluginsPath>..\references\GitExtensions\Plugins\</GitExtensionsDebugPluginsPath>
   </PropertyGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(GitExtensionsDebugPluginsPath)" />
