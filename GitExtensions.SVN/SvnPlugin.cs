@@ -82,7 +82,7 @@ namespace GitExtensions.SVN
         {
             if (repoType == RepoType.Unknown)
             {
-                ExecutionResult result = gitUiCommands.GitModule.RunGitCmdResult(cmdInfo);
+                ExecutionResult result = gitUiCommands.GitModule.GitExecutable.Execute(cmdInfo);
                 repoType = (result.ExitCode == 0) ? RepoType.SVN
                                                   : RepoType.git;
             }
