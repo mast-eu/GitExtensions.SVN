@@ -2,8 +2,8 @@ Set-Location $PSScriptRoot
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $ExtractRootPath = '../../../references' 
-$AssetToDownloadName = 'GitExtensions-Portable-3.1.0.5766-RC1.zip';
-$AssetToDownloadUrl = 'https://github.com/gitextensions/gitextensions/releases/download/v3.1-RC1/GitExtensions-Portable-3.1.0.5766-RC1.zip';
+$AssetToDownloadName = 'GitExtensions-Portable-3.1.0.5877.zip';
+$AssetToDownloadUrl = 'https://github.com/gitextensions/gitextensions/releases/download/v3.1/GitExtensions-Portable-3.1.0.5877.zip';
 
 if (!($null -eq $AssetToDownloadUrl))
 {
