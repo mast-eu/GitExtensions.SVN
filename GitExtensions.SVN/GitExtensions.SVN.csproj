@@ -3,6 +3,12 @@
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <GitExtensionsDebugPluginsPath>..\references\GitExtensions\Plugins\</GitExtensionsDebugPluginsPath>
+    <GitExtensionsReferenceSource>github</GitExtensionsReferenceSource>
+    <GitExtensionsReferenceVersion>v3.1</GitExtensionsReferenceVersion>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -35,16 +41,9 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
-
-  <!-- Before building project ensure we have debug GitExtensions instance (for references and debugging). -->
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Exec Command="powershell.exe -ExecutionPolicy Unrestricted Resources\Tools\Download-GitExtensions.ps1" />
   </Target>
-
-  <!-- After build, copy plugin to debug GitExtensions instance (for debugging). -->
-  <PropertyGroup>
-    <GitExtensionsDebugPluginsPath>..\references\GitExtensions\Plugins\</GitExtensionsDebugPluginsPath>
-  </PropertyGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(GitExtensionsDebugPluginsPath)" />
   </Target>
@@ -54,9 +53,12 @@
     <NuspecFile>$(MSBuildThisFileDirectory)$(MSBuildProjectName).nuspec</NuspecFile>
     <Authors>Martin Steinisch</Authors>
     <Company></Company>
-    <Description>Git Extensions SVN plugin distributed as NuGet package.</Description>
-    <PackageProjectUrl>https://github.com/maraf/GitExtensions.SVN</PackageProjectUrl>
-    <PackageTags>Neptuo GitExtensions</PackageTags>
+    <Description>Git Extensions SVN plugin.</Description>
+    <PackageProjectUrl>https://github.com/mast-eu/GitExtensions.SVN</PackageProjectUrl>
+    <PackageTags></PackageTags>
+    <Version>0.1.0</Version>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <Target Name="SetPackageProperties" BeforeTargets="GenerateNuspec">
     <PropertyGroup>
