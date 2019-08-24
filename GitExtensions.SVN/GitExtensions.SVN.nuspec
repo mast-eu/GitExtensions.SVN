@@ -5,13 +5,15 @@
     <version>$version$</version>
     <authors>$author$</authors>
     <description>$description$</description>
-    <projectUrl>$projectUrl$</projectUrl>
+    <projectUrl>$projectUrl$</projectUrl> 
+    <license type="file">LICENSE.md</license>
     <tags>$tags$</tags>
     <dependencies>
-      <dependency id="gitextensions.extensibility" version="[0.1.0, 1.0.0)" />
+      <dependency id="GitExtensions.Extensibility" version="[0.1.0, 1.0.0)" />
     </dependencies>
   </metadata>
   <files>
+    <file src="../LICENSE.md" target="LICENSE.md" />
     <file src="bin/$configuration$/net461/GitExtensions.SVN.dll" target="/lib" />
   </files>
 </package>
