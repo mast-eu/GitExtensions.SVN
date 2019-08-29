@@ -5,7 +5,8 @@
     <version>$version$</version>
     <authors>$author$</authors>
     <description>$description$</description>
-    <projectUrl>$projectUrl$</projectUrl> 
+    <projectUrl>$projectUrl$</projectUrl>
+    <iconUrl>https://github.com/mast-eu/GitExtensions.SVN/blob/master/GitExtensions.SVN/Resources/Icons/subversion.png?raw=true</iconUrl>
     <license type="file">LICENSE.md</license>
     <tags>$tags$</tags>
     <dependencies>
