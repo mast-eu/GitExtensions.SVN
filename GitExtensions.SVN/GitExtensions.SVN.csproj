@@ -53,7 +53,7 @@
     <NuspecFile>$(MSBuildThisFileDirectory)$(MSBuildProjectName).nuspec</NuspecFile>
     <Authors>Martin Steinisch</Authors>
     <Company></Company>
-    <Description>Git Extensions SVN plugin.</Description>
+    <Description>Support for common git-svn commands in Git Extensions.</Description>
     <PackageProjectUrl>https://github.com/mast-eu/GitExtensions.SVN</PackageProjectUrl>
     <PackageTags>GitExtensions;GitExtensionsPlugin</PackageTags>
     <Version>0.0.0</Version>
