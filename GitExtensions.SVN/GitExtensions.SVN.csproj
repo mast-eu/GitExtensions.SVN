@@ -51,36 +51,30 @@
   <!-- Pack as .nupkg with dependency on GitExtensions.Plugins -->
   <PropertyGroup>
     <NuspecFile>$(MSBuildThisFileDirectory)$(MSBuildProjectName).nuspec</NuspecFile>
-    <Authors>Martin Steinisch</Authors>
-    <Company></Company>
-    <Description>Support for common git-svn commands in Git Extensions.</Description>
-    <PackageProjectUrl>https://github.com/mast-eu/GitExtensions.SVN</PackageProjectUrl>
-    <PackageTags>GitExtensions;GitExtensionsPlugin</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>0.0.0</Version>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
     <FileVersion>0.0.0.0</FileVersion>
     <InformationalVersion>0.0.0.0</InformationalVersion>
     <PackageVersion>0.0.0.0</PackageVersion>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Martin Steinisch</Authors>
+    <Description>Support for common git-svn commands in Git Extensions.</Description>
+    <PackageIconUrl>https://github.com/mast-eu/GitExtensions.SVN/blob/master/GitExtensions.SVN/Resources/Icons/subversion_logo_notxt.png?raw=true</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/mast-eu/GitExtensions.SVN</PackageProjectUrl>
+    <PackageTags>GitExtensions</PackageTags>
   </PropertyGroup>
   <Target Name="SetPackageProperties" BeforeTargets="GenerateNuspec">
     <PropertyGroup>
       <NuspecProperties>
         id=$(PackageId);
-        version=$(PackageVersion);
-        configuration=$(Configuration);
-        tags=$(PackageTags.Replace(';',' '));
-        projectUrl=$(PackageProjectUrl);
-        iconUrl=$(PackageIconUrl);
-        repositoryUrl=$(RepositoryUrl);
-        repositoryType=$(RepositoryType);
-        repositoryCommit=$(RepositoryCommit);
-        author=$(Authors);
-        copyright=$(Copyright);
+        version=$(Version);
+        authors=$(Authors);
         description=$(Description);
-        targetDir=$(TargetDir);
+        iconUrl=$(PackageIconUrl);
+        projectUrl=$(PackageProjectUrl);
+        tags=$(PackageTags.Replace(';',' '));
+        configuration=$(Configuration);
       </NuspecProperties>
     </PropertyGroup>
   </Target>
-
 </Project>

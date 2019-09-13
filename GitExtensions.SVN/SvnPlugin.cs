@@ -17,7 +17,7 @@ namespace GitExtensions.SVN
     [Export(typeof(IGitPlugin))]
     public class SvnPlugin : GitPluginBase
     {
-        private const string PluginName = "SVN plugin";
+        private const string PluginName = "SVN";
 
         private RepoType repoType = RepoType.Unknown;
 

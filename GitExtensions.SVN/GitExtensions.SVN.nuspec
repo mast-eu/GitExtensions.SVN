@@ -3,18 +3,18 @@
   <metadata>
     <id>$id$</id>
     <version>$version$</version>
-    <authors>$author$</authors>
+    <authors>$authors$</authors>
     <description>$description$</description>
-    <projectUrl>$projectUrl$</projectUrl>
-    <iconUrl>https://github.com/mast-eu/GitExtensions.SVN/blob/master/GitExtensions.SVN/Resources/Icons/subversion_logo_notxt.png?raw=true</iconUrl>
+    <iconUrl>$iconUrl$</iconUrl>
     <license type="file">LICENSE.md</license>
+    <projectUrl>$projectUrl$</projectUrl>
     <tags>$tags$</tags>
     <dependencies>
       <dependency id="GitExtensions.Extensibility" version="[0.1.0, 1.0.0)" />
     </dependencies>
   </metadata>
   <files>
-    <file src="../LICENSE.md" target="LICENSE.md" />
-    <file src="bin/$configuration$/net461/GitExtensions.SVN.dll" target="/lib" />
+    <file src="..\LICENSE.md" target="\" />
+    <file src="bin\$configuration$\net461\GitExtensions.SVN.dll" target="lib\" />
   </files>
 </package>
