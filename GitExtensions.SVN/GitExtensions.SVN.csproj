@@ -59,7 +59,7 @@
     <PackageVersion>0.0.0.0</PackageVersion>
     <Authors>Martin Steinisch</Authors>
     <Description>Support for common git-svn commands in Git Extensions.</Description>
-    <PackageIconUrl>https://github.com/mast-eu/GitExtensions.SVN/blob/master/GitExtensions.SVN/Resources/Icons/subversion_logo_notxt.png?raw=true</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/mast-eu/GitExtensions.SVN/master/GitExtensions.SVN/Resources/Icons/subversion_logo_notxt.png</PackageIconUrl>
     <PackageProjectUrl>https://github.com/mast-eu/GitExtensions.SVN</PackageProjectUrl>
     <PackageTags>GitExtensions</PackageTags>
   </PropertyGroup>
