@@ -27,4 +27,3 @@ jobs:
       - name: Build & package with `msbuild`
         run: |
           msbuild -target:restore -property:Configuration=Release
-          msbuild -target:pack -property:Configuration=Release
