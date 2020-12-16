@@ -1,0 +1,27 @@
+# This workflow will run CI on the codebase
+
+name: CI
+on: push
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.x
+
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
+        with:
+          vs-version: '[16.8,16.8)'
+
+      - name: Build & package with `msbuild`
+        run: |
+          msbuild -target:restore -property:Configuration=Release
+          msbuild -target:pack -property:Configuration=Release
