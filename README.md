@@ -1,3 +1,9 @@
+# ⚠️ Archived
+
+This repository is archived and is no longer maintained.
+The last version of Git Extensions supported by this plugin is [Git Extensions 3.5.4](https://github.com/gitextensions/gitextensions/releases/tag/v3.5.4).
+If you really need to use SVN in Git Extensions, consider using `git svn` directly (see [documentation](https://git-scm.com/docs/git-svn) for details).
+
 # GitExtensions.SVN
 A SVN plugin for Git Extensions.
 
